@@ -10,7 +10,7 @@ with open('mein_dp.csv',encoding='latin-1') as infile:# ,open("clean_mein_dp.csv
     cnt=-1                                                  #needed for indices -1 for starting at 0
 
     for row in data:
-        new_csv.append([])                                  #making list 2d
+    new_csv.append([])                                  #making list 2d
         cnt+=1
         for column in row:                                  #going through columns
             new_csv[cnt].append(column)                     #append to list if not keyword
