@@ -9,12 +9,9 @@ with open(str(name)+ '.csv',encoding='latin-1') as infile:# ,open("clean_mein_dp
 
     data = csv.reader(infile)#, delimiter=',')
     newfile = 'clean_mein_dp.csv'                           # define name for the new file, open later when append
-#next(data, None)                                           #skips first row
     new_csv  = []
     cnt=-1                                                  #needed for indices -1 for starting at 0
 
-
-    #Production block
     print("Pls enter which colum to remove.")               
     print("Your options are:" + str(next(data)))            #next() shows first row and sets cursor to second
     print("1 for first, 2 for second, 3 for third and so on")
@@ -31,7 +28,7 @@ with open(str(name)+ '.csv',encoding='latin-1') as infile:# ,open("clean_mein_dp
             new_csv[cnt].append(column)
     
                 
-    for rows in new_csv:
+    for rows in new_csv:                                    #deletes the right column in every row
         del rows[rmv-1]
 
     for i in range(len(new_csv)):                           #going through every line
