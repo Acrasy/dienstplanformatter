@@ -1,7 +1,12 @@
 import csv
 import os
 
-with open('mein_dp.csv',encoding='latin-1') as infile:# ,open("clean_mein_dp.csv", 'a',newline='\n',encoding='latin-1') as outfile :
+print("Bitte Name der .csv Datei eingeben:")
+name = input()
+
+#with open('mein_dp.csv',encoding='latin-1') as infile:# ,open("clean_mein_dp.csv", 'a',newline='\n',encoding='latin-1') as outfile :
+with open(str(name)+ '.csv',encoding='latin-1') as infile:# ,open("clean_mein_dp.csv", 'a',newline='\n',encoding='latin-1') as outfile :
+
     data = csv.reader(infile)#, delimiter=',')
     newfile = 'clean_mein_dp.csv'                           # define name for the new file, open later when append
 #next(data, None)                                           #skips first row
@@ -16,9 +21,6 @@ with open('mein_dp.csv',encoding='latin-1') as infile:# ,open("clean_mein_dp.csv
     #rmv = "'" + str(input()) + "'"                          #Eingabe als String mit '' für if
     rmv = int(input())                                       #Eingabe als Int 
     
-    #Testing block
-    #rmv = {'Microsoft Promotion 2016' , 'Mariahilfer Straße 42-48-1070-Wien' , 'Sales Promotion', 'Microsoft Promotion 2016' , 'Inaktiv'}                                                   #helper,what to remove
-
 
     for row in data:
         new_csv.append([])                                  #making list 2d
@@ -28,21 +30,10 @@ with open('mein_dp.csv',encoding='latin-1') as infile:# ,open("clean_mein_dp.csv
             #    new_csv[cnt].append(column)                 #append to list if not keyword
             new_csv[cnt].append(column)
     
-    #index = 0
-    #while(rmv != new_csv[0][index]):                        #set rmv to column index via cycling
-    #    if rmv == new_csv[0][index]:                        #decided to use number as input
-    #        rmv = index
-    #    else:
-    #        index +=1
-    clean = []
-    
-    for final_row in new_csv:                               #versuch jedes elemnt in zeile zu durchgehn
-        for final_elem in final_row:                        #um dann den index zu überprüfen
-            if final_row.index(final_elem) != rmv:          #wenn der index nicht dem rmv entspricht dann append
-                clean.append(final_elem)
                 
-        
+    for rows in new_csv:
+        del rows[rmv-1]
 
-    for i in range(len(clean)):                           #going through every line
+    for i in range(len(new_csv)):                           #going through every line
         csv.writer(open(newfile,'a')).writerow(new_csv[i])  #append every line to file
 
