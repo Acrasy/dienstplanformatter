@@ -18,6 +18,8 @@ with open(str(name)+ '.csv',encoding='latin-1') as infile:# ,open("clean_mein_dp
     #rmv = "'" + str(input()) + "'"                          #Eingabe als String mit '' für if
     rmv = int(input())                                       #Eingabe als Int 
     
+#test cmt for push
+
 
     for row in data:
         new_csv.append([])                                  #making list 2d
