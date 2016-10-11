@@ -1,12 +1,18 @@
 import csv
 import os
+from PyQt5 import QtGui
+
+
 
 print("Bitte Name der .csv Datei eingeben:")
 name = input()
 
-#with open('mein_dp.csv',encoding='latin-1') as infile:# ,open("clean_mein_dp.csv", 'a',newline='\n',encoding='latin-1') as outfile :
-with open(str(name)+ '.csv',encoding='latin-1') as infile:# ,open("clean_mein_dp.csv", 'a',newline='\n',encoding='latin-1') as outfile :
 
+#if path == "" :
+    #with open('mein_dp.csv',encoding='latin-1') as infile:# ,open("clean_mein_dp.csv", 'a',newline='\n',encoding='latin-1') as outfile :
+    with open(str(name)+ '.csv',encoding='latin-1') as infile:# ,open("clean_mein_dp.csv", 'a',newline='\n',encoding='latin-1') as outfile :
+#else :
+    
     data = csv.reader(infile)#, delimiter=',')
     newfile = 'clean_mein_dp.csv'                           # define name for the new file, open later when append
     new_csv  = []
